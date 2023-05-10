@@ -1,0 +1,28 @@
+.cart-widget {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.cart-widget__icon {
+  width: 30px;
+  height: 30px;
+}
+
+.cart-widget__total-shopping {
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
