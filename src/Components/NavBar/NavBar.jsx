@@ -8,8 +8,8 @@ const NavBar = () => {
         <h3 className="navbar__title">DefHelp</h3>
       </Link>
         <div className="navbar__category">
-            <NavLink to={`/category/deportivo`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Deportivo</NavLink>
-            <NavLink to={`/category/cazual`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Cazual</NavLink>
+            <NavLink to={`/category/1`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Deportivo</NavLink>
+            <NavLink to={`/category/2`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Cazual</NavLink>
         </div>
         <CartWidget />
     </nav>

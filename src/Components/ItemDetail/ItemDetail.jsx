@@ -1,5 +1,4 @@
 import ItemCount from '../ItemCount/ItemCount'
-
  const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   return (
     <article>
@@ -9,7 +8,7 @@ import ItemCount from '../ItemCount/ItemCount'
             </h2>
         </header>
         <picture>
-            <img src={img} alt={name} />
+            <img src={img} alt={name}/>
         </picture>
         <section>
             <p>
@@ -23,7 +22,7 @@ import ItemCount from '../ItemCount/ItemCount'
             </p>
         </section>
         <footer>
-            <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('cantidad agregada', quantity)}/>
+            <ItemCount initial={1} stock={10} onAdd={(quantity) => console.log('cantidad agregada', quantity)}/>
         </footer>
     </article>
   )

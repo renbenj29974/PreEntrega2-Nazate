@@ -14,11 +14,11 @@ const Item = ({id, name, img, price, stock}) => {
                 Precio: ${price}
             </p>
             <p>
-                Stock disponible: ${stock}
+                Stock disponible: {stock}
             </p>
         </section>
         <footer>
-            <Link to={`/Item/${id}`}>Ver detalle</Link>
+            <Link to={`/item/${id}`}>Ver detalle</Link>
         </footer>
     </article>
   )
