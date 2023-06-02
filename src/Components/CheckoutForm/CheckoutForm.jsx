@@ -48,7 +48,8 @@ const CheckoutForm = ({ onConfirm }) => {
                 </label>   
                 <div className="Label">
                     <button type="submit" className="Button">Crear Orden</button>
-                </div>   
+                </div> 
+            </form>  
         </div>
     )
 }
