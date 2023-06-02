@@ -3,17 +3,25 @@ import NavBar from './Components/NavBar/NavBar';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Cart from './Components/Cart/Cart';
+import Checkout from './Components/Checkout/Checkout';
+
+import { CartProvider } from './Context/CartContext';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<ItemListContainer />} />
-        <Route path='/category/:categoryId' element={<ItemListContainer />} />
-        <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-        <Route path='*' element={<h1>404 NOT FOUND</h1>} />
-      </Routes>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting={'Todos nuestros productos'}/>} />
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting={'Productos por categoria'}/>} />
+            <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/chckout' element={<Checkout />} />
+            <Route path='*' element={<h1>404 NOT FOUND</h1>} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );
