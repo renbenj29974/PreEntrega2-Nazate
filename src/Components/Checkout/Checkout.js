@@ -1,7 +1,8 @@
 import { useContext, useState } from "react"
 import CartContext from "../../Context/CartContext"
-import { Timestamp, addDoc, collection, documentId, writeBatch } from "firebase/firestore"
+import { getDocs, query, where, Timestamp, addDoc, collection, documentId, writeBatch } from "firebase/firestore"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
+import { db } from '../../services/firebase/firebaseConfig'
 
 
 const Checkout = () => {

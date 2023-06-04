@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { getProducts, getProductByCategory } from '../../asyncMock'
 import ItemList from '../ItemList/ItemList'
 
 import { useParams } from 'react-router-dom'
@@ -15,14 +14,15 @@ const ItemListContainer = ({ greeting }) => {
 
     useEffect(() => {
       setLoading(true)
-      //const asyncFunc = categoryId ? getProductByCategory : getProducts
 
       const collectionRef = categoryId
-        ? query(collection(db, 'products'), where('category', '==', categoryId))
-        : collection(db, 'products')
+        ? query(collection(db, 'Items'), where('categoriaId', '==', categoryId))
+        : collection(db, 'Items')
+      //console.log(collectionRef)
 
       getDocs(collectionRef)
         .then(response => {
+          console.log(response)
           const productsAdapted = response.docs.map(doc => {
             const data = doc.data()
             return { id: doc.id, ...data }

@@ -4,10 +4,10 @@ import { useState } from "react"
 const CheckoutForm = ({ onConfirm }) => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
-    const [email, setemail] = useState('')
+    const [email, setEmail] = useState('')
 
     const handleConfirm = (event) => {
-        event.preventDefualt()
+        event.preventDefault()
 
         const userData = {
             name, phone, email
