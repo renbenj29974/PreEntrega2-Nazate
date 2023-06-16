@@ -15,25 +15,22 @@ const Checkout = () => {
         setLoading(true)
 
         try {
+            const orderTotal = total()
             const objOrder = {
                 buyer: {
                     name, phone, email
                 },
                 items: cart,
-                total: total,
+                total: orderTotal,
                 date: Timestamp.fromDate(new Date())
+                //datee: new Date().toISOString()
             }
 
             const batch = writeBatch(db)
-
             const outOfStock = []
-
             const ids = cart.map(prod => prod.id)
-
             const productsRef = collection(db, 'products')
-
             const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
-
             const { docs } = productsAddedFromFirestore
 
             docs.forEach(doc => {
@@ -48,17 +45,16 @@ const Checkout = () => {
                 } else {
                     outOfStock.push({ id: doc.id, ...dataDoc})
                 }
-            })
+            });
 
             if(outOfStock.length === 0) {
                 await batch.commit()
-
                 const orderRef = collection(db, 'orders')
-
                 const orderAdded = await addDoc(orderRef, objOrder)
+                //const orderID = orderAdded.id;
 
-                setOrderId(orderAdded.id)
-                clearCart()
+                setOrderId(orderAdded.id);
+                clearCart();
             } else {
                 console.error('hay productos que estan fuera de stock')
             }

@@ -22,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
 
       getDocs(collectionRef)
         .then(response => {
-          console.log(response)
+          //console.log(response)
           const productsAdapted = response.docs.map(doc => {
             const data = doc.data()
             return { id: doc.id, ...data }

@@ -7,6 +7,10 @@ import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
 
 import { CartProvider } from './Context/CartContext';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css'
+
 function App() {
   return (
     <div className="App">

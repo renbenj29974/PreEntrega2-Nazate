@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 import CartContext from '../../Context/CartContext'
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const[quatityAdded, setQuatityAdded] = useState(0)
+const ItemDetail = ({ id, name, img, categoriaId, description, price, stock }) => {
+    const[quantityAdded, setQuatityAdded] = useState(0)
 
     const { addItem } = useContext(CartContext)
 
@@ -20,36 +20,30 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     }
     
     return (
-    <article>
-        <header>
-            <h2>
-                {name}
-            </h2>
-        </header>
-        <picture>
-            <img src={img} alt={name}/>
-        </picture>
-        <section>
-            <p>
-                Categoria: {category}
-            </p>
-            <p>
-                Descripción: {description}
-            </p>
-            <p>
-                Precio: {price}
-            </p>
-        </section>
-        <footer>
+    <div className='Detalle'>
+        <div className='card-title' categoria={categoriaId}></div>
+            <picture>
+                <img src={img} alt={name} />
+            </picture>
+            <div className='card-body'>
+                <h3 className='card-title'><strong>{name}</strong></h3>
+                <h4 className='card-title'>{description}</h4>
+                <h5 className='card-title'>$ {price}</h5>
+
+            <footer>
             {
-                quatityAdded > 0 ? (
-                    <Link to='/cart' className='Option'>Finalizar compra</Link>
+                quantityAdded > 0 ? (
+                    <Link to='/cart'>
+                        <br />
+                        <span className='btn-style'>Finalizar Compra</span>
+                    </Link>
                 ) : (
                     <ItemCount initial={1} stock={stock} onAdd={handleOnAdd}/>
                 )
             }
-        </footer>
-    </article>
+            </footer>
+        </div>
+    </div>
   )
 }
 
